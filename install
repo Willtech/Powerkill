@@ -1,0 +1,18 @@
+#!/bin/bash
+## Powerkill Install
+# Install script for powerkill
+# install script
+# Source Code produced by Willtech 2024
+# v1.1 hand coded by HRjJ
+
+CompletedMessage="Usage: powerkill PID\r\nCompleted!"
+
+if [ `whoami` != root ]; then
+    echo Please run as sudo user
+    exit
+fi
+
+cp ./powerkill /usr/bin/powerkill
+chmod +x /usr/bin/powerkill
+
+echo -e ${CompletedMessage}

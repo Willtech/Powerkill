@@ -1,0 +1,40 @@
+#!/bin/bash
+## Powerkill
+# Takes a PID input and iterates to run at all kill levels for PID
+# powerkill script
+# Source Code produced by Willtech 2024
+# v2.2 hand coded by HRjJ
+#Professor. Damian A. James Williamson
+#Edith Cowen University
+#Scripting Languages
+#Week O - Group 1 - Shuchi Dhir
+
+#Run output help
+if [[ $1 = "-h" ]] || [[ $1 = "--help" ]] || [[ -z $1 ]]; then
+    echo Usage: powerkill [OPTIONS] PID
+    echo "  Powerkill iterates \`kill -n {1...65536} PID\`" and supresses output.
+    echo "  You can find the PID with \`ps -ae | grep {process name}\`"
+    echo "  Or using \`htop\` >>>>> screen"
+    echo
+    echo Options:
+    echo "  General Options:"
+    echo "    -h, --help                           Print this help and exit"
+    exit 0
+fi
+
+#Qualify $1 for PID Integer '^[0-9]*$' only
+RegEx='^[0-9]*$' #Match for PID
+if ! [[ "$1" =~ $RegEx ]]; then
+    echo Invalid arguement.
+    powerkill --help
+    exit 1
+fi
+
+#Qualify PID and iterate for kill -n {1..65536} PID
+if ps -p "$1" > /dev/null; then
+    for j in {1..65536}
+    do
+        kill -n $j "$1" > /dev/null 2>&1
+    done
+fi
+exit 0
