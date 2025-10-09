@@ -9,6 +9,8 @@
 
 Unpack the downloaded release gzip directory change to the `cd Powerkill` directory and run `./install`
 
+`install.bin` install compiled. dependency: shc, gcc
+
 ### Usage
 powerkill [OPTIONS] PID
 
