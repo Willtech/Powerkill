@@ -42,10 +42,15 @@ if ($argc < 2) {
 
 $pid = null;
 $startFromZero = false;
+$timer = false;
 
 // Parse arguments
 foreach (array_slice($argv, 1) as $arg) {
     switch ($arg) {
+        case "--timer":
+             $timer = true;
+             echo "Starting a timer.";
+	     break;
         case "-h":
         case "--help":
             echo "Usage: php powerkill.php <pid> [options]\n";
@@ -94,4 +99,10 @@ for ($i = $start; $i <= 65536; $i++) {
 }
 
 echo "Signal storm completed for PID $pid (starting from $start)\n";
+
+if ($timer) {
+    $time = microtime(true) - $_SERVER["REQUEST_TIME_FLOAT"];
+    echo "Did all that in $time seconds.\r\n";
+}
+
 exit(0);
