@@ -3,8 +3,8 @@
 # Takes a PID input and iterates to run at all kill levels for PID
 # powerkill script
 # Source Code produced by Willtech 2024
-# v2.2 hand coded by HRjJ
-#Professor. Damian A. James Williamson
+# v2.3 hand coded by HRjJ 2025
+#Professor. Damian A. James Williamson Grad.
 #Edith Cowen University
 #Scripting Languages
 #Week O - Group 1 - Shuchi Dhir
@@ -15,26 +15,39 @@ if [[ $1 = "-h" ]] || [[ $1 = "--help" ]] || [[ -z $1 ]]; then
     echo "  Powerkill iterates \`kill -n {1...65536} PID\`" and supresses output.
     echo "  You can find the PID with \`ps -ae | grep {process name}\`"
     echo "  Or using \`htop\` >>>>> screen"
-    echo
+    echo ""
+    echo "Try; pgrep {process name} | xargs powerkill"
+    echo ""
     echo Options:
+    echo ""
+    echo "    -a --all                             Iterate all process kill levels"
+    echo ""
     echo "  General Options:"
     echo "    -h, --help                           Print this help and exit"
     exit 0
 fi
 
+if [[ $1 = "-a" ]] || [[ $1 = "--all" ]]; then
+    i=0
+    P="$2"
+else
+    i=1
+    P="$1"
+fi
+
 #Qualify $1 for PID Integer '^[0-9]*$' only
 RegEx='^[0-9]*$' #Match for PID
-if ! [[ "$1" =~ $RegEx ]]; then
+if ! [[ "$P" =~ $RegEx ]]; then
     echo Invalid arguement.
     powerkill --help
     exit 1
 fi
 
 #Qualify PID and iterate for kill -n {1..65536} PID
-if ps -p "$1" > /dev/null; then
-    for j in {1..65536}
+if ps -p "$P" > /dev/null; then
+    for ((j = $i; j <= 65536 ; j++));
     do
-        kill -n $j "$1" > /dev/null 2>&1
+        kill -n $j "$P" > /dev/null 2>&1
     done
 fi
 exit 0
