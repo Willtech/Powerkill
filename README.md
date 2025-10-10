@@ -14,6 +14,8 @@ Unpack the downloaded release gzip directory change to the `cd Powerkill` direct
 ### Usage
 powerkill [OPTIONS] PID
 
+powerkill takes one option and PID.
+
 `-a --all` Iterate all process kill levels
 
 `powerkill --help`
@@ -28,5 +30,6 @@ Try; pgrep {process name} | xargs powerkill
 Options:  
   General Options:  
     -a, --all
+        --timer
     -h, --help
 ```

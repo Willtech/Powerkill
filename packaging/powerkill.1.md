@@ -34,8 +34,5 @@ powerkill takes one option and PID.
 -a, \--all
 :   Iterates through all process kill levels 
 
---timer
-:    Start a process timer.
-
 -h, \--help
 :   Show usage message. 
