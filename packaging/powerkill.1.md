@@ -1,6 +1,6 @@
 % POWERKILL(8) Powerkill User Manuals
-% Professor. Damian A. James Williamson
-% January 31, 2024
+% Professor. Damian A. James Williamson Grad.
+% October 11, 2025
 
 # NAME
 
@@ -28,6 +28,14 @@ Iterates kill -n \{1..65536} 1234
 Iterates kill -n \{1..65536} _PID_ of _process name_
 
 # OPTIONS
+
+powerkill takes one option and PID.
+
+-a, \--all
+:   Iterates through all process kill levels 
+
+--timer
+:    Start a process timer.
 
 -h, \--help
 :   Show usage message. 
