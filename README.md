@@ -33,3 +33,14 @@ Options:
         --timer
     -h, --help
 ```
+
+*note: In may multi-thread applications you still have to run it twice.*
+
+---
+
+### Suggested Use
+
+`pgrep {pname} | groot xargs powerkill`
+
+Privilege wrapper: [`groot`](https://github.com/Willtech/groot) by Willtech.
+
