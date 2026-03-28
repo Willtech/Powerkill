@@ -25,7 +25,7 @@ Powerkill iterates `kill -n {1...65536} PID` and suppresses output.
 You can find the PID with `ps -ae | grep {process name}`  
 Or using `htop` >>>>> screen  
 
-Try; pgrep {process name} | xargs powerkill
+Try; pgrep {pname} | xargs powerkill
 
 Options:  
   General Options:  
