@@ -34,7 +34,7 @@ Options:
     -h, --help
 ```
 
-*note: In may multi-thread applications you still have to run it twice.*
+*note: In many multi-thread applications you still have to run it twice.*
 
 ---
 
