@@ -29,6 +29,8 @@ if [[ $1 = "-h" ]] || [[ $1 = "--help" ]] || [[ -z $1 ]]; then
     exit 0
 fi
 
+# If No PID arguement
+
 if [[ $1 = "-a" ]] || [[ $1 = "--all" ]]; then
     i=0
     P="$2"
