@@ -1,21 +1,27 @@
 #!/bin/bash
-## Powerkill Install
-# Install script for powerkill
-# install script
-# Source Code produced by Willtech 2024
-# v1.1 hand coded by HRjJ
+## Powerkill Build Script
+# Builds the Powerkill binary using shc + gcc
+# Koji-safe, RPM-safe, no privileged operations
+# Source Code produced by Willtech 2026
+# v2.3 hand coded by HRjJ
 
-CompletedMessage="Usage: powerkill PID\r\nCompleted!"
+set -e
 
-if [ `whoami` != root ]; then
-    echo Please run as sudo user
-    exit
-fi
+echo "==> Building Powerkill"
 
+# Ensure the script is executable
+chmod +x powerkill
+
+# Generate C source from the script
 shc -f powerkill
+
+# Compile the generated C file into a binary
 gcc powerkill.x.c -o powerkill.bin
 
-cp ./powerkill.bin /usr/bin/powerkill
-chmod +x /usr/bin/powerkill
+# Normalize output name (same pattern as groot)
+if [ -f powerkill.bin ]; then
+    mv powerkill.bin powerkill
+fi
 
-echo -e ${CompletedMessage}
+echo "==> Build complete: ./powerkill"
+echo "==> Ready for RPM packaging"
