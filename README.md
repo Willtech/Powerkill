@@ -1,4 +1,5 @@
 # Powerkill v2.3
+[![Ask DeepWiki](https://deepwiki.com/badge.svg)](https://deepwiki.com/Willtech/Powerkill)  
 ## Professor. Damian A. James Williamson Grad.
 ## Edith Cowen University Alumni.
 ## Scripting Languages
